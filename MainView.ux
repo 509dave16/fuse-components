@@ -1,0 +1,3 @@
+<Panel ux:Class="MyHelloWorldText"> 
+	<Text>Hello World!</Text>
+</Panel>
