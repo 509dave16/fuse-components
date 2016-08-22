@@ -1,0 +1,37 @@
+<Panel ux:Class="EventButton" BackgroundColor="#fff" TextColor="#23b4f5" TextHighlightColor="{Property this.TextColor}" Text="Button" Padding="10" Clicked="{clickedHandler}">
+    <UserEvent ux:Name="EventButtonClicked" />
+
+    <!-- Properties -->
+    <float4 ux:Property="BackgroundColor" />
+    <float4 ux:Property="TextColor" />
+    <float4 ux:Property="TextHighlightColor" />
+    <string ux:Property="Text" />
+    <object ux:Property="ClickedArgs" />
+
+    <!-- Triggers/Actions -->
+    <Pressed>
+			<Set Target="eventButtonBackground.Color" Value="{Property this.BackgroundColor}"/>
+			<Set Target="eventButtonText.TextColor" Value="{Property this.TextHighlightColor}" />
+		</Pressed>
+		<Released>
+			<Set Target="eventButtonBackground.Color" Value="{Property this.BackgroundColor}"/>
+			<Set Target="eventButtonText.TextColor" Value="{Property this.TextColor}" />
+		</Released>
+
+		<!-- Elements -->
+    <Text ux:Name="eventButtonText" TextAlignment="Center" Value="{Property this.Text}" TextColor="{Property this.TextColor}"/>
+    <JavaScript>
+    	var Observable = require("FuseJS/Observable");
+      var scope = this;
+      function clickedHandler(args) {
+        EventButtonClicked.raise({
+          row: scope.ClickedArgs.value.row,
+          column: scope.ClickedArgs.value.column
+        });
+      }
+      module.exports = {
+        clickedHandler: clickedHandler
+      };
+    </JavaScript>
+    <Rectangle ux:Name="eventButtonBackground" Layer="Background" Color="{Property this.BackgroundColor}" />
+</Panel>

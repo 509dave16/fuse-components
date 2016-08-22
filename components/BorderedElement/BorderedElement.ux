@@ -1,0 +1,22 @@
+<DockPanel ux:Class="BorderedElement">
+  <JavaScript>
+    module.exports = {
+      dumbAndDumber: "harharhar"
+    };
+  </JavaScript>
+  <string ux:Property="TemplateToInclude" />
+  <Size ux:Property="Top" />
+  <Size ux:Property="Bottom" />
+  <Size ux:Property="Left" />
+  <Size ux:Property="Right" />
+  <float4 ux:Property="BorderColor" />
+  <Rectangle Color="{Property this.BorderColor}" Dock="Top" Height="{Property this.Top}" />
+  <Rectangle Color="{Property this.BorderColor}" Dock="Bottom" Height="{Property this.Bottom}" />
+  <Rectangle Color="{Property this.BorderColor}" Dock="Right" Width="{Property this.Right}" />
+  <Rectangle Color="{Property this.BorderColor}" Dock="Left" Width="{Property this.Left}" />
+  <Panel Dock="Fill">
+    <Each TemplateSource="this" TemplateKey="{Property this.TemplateToInclude}" Count="1">
+      <Text Value="Why is there no template?" />
+    </Each>
+  </Panel>
+</DockPanel>
