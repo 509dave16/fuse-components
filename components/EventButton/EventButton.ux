@@ -24,10 +24,7 @@
     	var Observable = require("FuseJS/Observable");
       var scope = this;
       function clickedHandler(args) {
-        EventButtonClicked.raise({
-          row: scope.ClickedArgs.value.row,
-          column: scope.ClickedArgs.value.column
-        });
+        EventButtonClicked.raise(scope.ClickedArgs.value);
       }
       module.exports = {
         clickedHandler: clickedHandler
