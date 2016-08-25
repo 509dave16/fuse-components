@@ -19,7 +19,7 @@
 		</Released>
 
 		<!-- Elements -->
-    <Text ux:Name="eventButtonText" TextAlignment="Center" Value="{Property this.Text}" TextColor="{Property this.TextColor}"/>
+    <Text ux:Name="eventButtonText" Alignment="Center" TextAlignment="Center" Value="{Property this.Text}" TextColor="{Property this.TextColor}"/>
     <JavaScript>
     	var Observable = require("FuseJS/Observable");
       var scope = this;
