@@ -7,7 +7,7 @@ function SetupProxy(debug) {
 }
 
 function printObjectMembers(object) {
-  for(key in object) {
+  for(var key in object) {
     console.log("Name of key:" + key);
     console.log("Type of key:" + typeof(object[key]));
   }
